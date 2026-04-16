@@ -11,11 +11,13 @@ Warm-expert light theme for long-form documentation work. Terracotta accents
 Built to match the Teragone Factory Typst slide template and MkDocs brand
 layer used across long-form audit deliverables.
 
-## Screenshots
+## At a glance
 
-![Editor](docs/screenshots/editor.png)
-![Markdown preview](docs/screenshots/markdown-preview.png)
-![Mermaid diagram](docs/screenshots/mermaid.png)
+![Teragone Factory palette](docs/brand/palette.png)
+
+Real screenshots of the theme in an editor window, the markdown preview,
+and a mermaid diagram will land in `docs/screenshots/` — see `BACKLOG.md`
+for the capture script that will regenerate them.
 
 ## Install
 

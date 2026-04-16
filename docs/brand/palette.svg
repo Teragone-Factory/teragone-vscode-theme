@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-label="Teragone Factory palette card">
+  <title>Teragone Factory — palette card</title>
+  <defs>
+    <style><![CDATA[
+      .bg      { fill: #FDFBF7; }
+      .ink     { fill: #1A1614; }
+      .muted   { fill: #6B615A; }
+      .label   { font-family: "Inter", "Plus Jakarta Sans", -apple-system, "Helvetica Neue", sans-serif; font-weight: 600; }
+      .hex     { font-family: "JetBrains Mono", "SF Mono", "Menlo", monospace; font-weight: 500; }
+      .title   { font-family: "Inter", "Plus Jakarta Sans", sans-serif; font-weight: 700; letter-spacing: -0.01em; }
+      .sub     { font-family: "Inter", "Plus Jakarta Sans", sans-serif; font-weight: 400; letter-spacing: 0.02em; }
+      .border  { fill: #D9D2C7; }
+      .divider { stroke: #D9D2C7; stroke-width: 1; }
+    ]]></style>
+  </defs>
+
+  <!-- Canvas -->
+  <rect class="bg" x="0" y="0" width="1200" height="480"/>
+
+  <!-- Top band -->
+  <text class="title ink" x="48" y="68" font-size="30">Teragone Factory</text>
+  <text class="sub muted" x="48" y="96" font-size="16">Warm-expert light theme · Terracotta on cream</text>
+  <rect x="48" y="116" width="1104" height="1" class="border"/>
+
+  <!-- 12 swatches in a 6×2 grid -->
+  <!-- Row 1 -->
+  <g transform="translate(48, 150)">
+    <!-- brand-primary -->
+    <rect x="0"    y="0" width="164" height="72" rx="6" fill="#C85A2C"/>
+    <text class="label ink" x="0"    y="96" font-size="13">brand-primary</text>
+    <text class="hex muted" x="0"    y="114" font-size="12">#C85A2C</text>
+
+    <!-- brand-dark -->
+    <rect x="184"  y="0" width="164" height="72" rx="6" fill="#9E4421"/>
+    <text class="label ink" x="184"  y="96" font-size="13">brand-dark</text>
+    <text class="hex muted" x="184"  y="114" font-size="12">#9E4421</text>
+
+    <!-- brand-soft -->
+    <rect x="368"  y="0" width="164" height="72" rx="6" fill="#FCEFE6" stroke="#D9D2C7"/>
+    <text class="label ink" x="368"  y="96" font-size="13">brand-soft</text>
+    <text class="hex muted" x="368"  y="114" font-size="12">#FCEFE6</text>
+
+    <!-- ink -->
+    <rect x="552"  y="0" width="164" height="72" rx="6" fill="#1A1614"/>
+    <text class="label ink" x="552"  y="96" font-size="13">ink</text>
+    <text class="hex muted" x="552"  y="114" font-size="12">#1A1614</text>
+
+    <!-- text-primary -->
+    <rect x="736"  y="0" width="164" height="72" rx="6" fill="#2B2620"/>
+    <text class="label ink" x="736"  y="96" font-size="13">text-primary</text>
+    <text class="hex muted" x="736"  y="114" font-size="12">#2B2620</text>
+
+    <!-- text-muted -->
+    <rect x="920"  y="0" width="164" height="72" rx="6" fill="#6B615A"/>
+    <text class="label ink" x="920"  y="96" font-size="13">text-muted</text>
+    <text class="hex muted" x="920"  y="114" font-size="12">#6B615A</text>
+  </g>
+
+  <!-- Row 2 -->
+  <g transform="translate(48, 306)">
+    <!-- border -->
+    <rect x="0"    y="0" width="164" height="72" rx="6" fill="#D9D2C7"/>
+    <text class="label ink" x="0"    y="96" font-size="13">border</text>
+    <text class="hex muted" x="0"    y="114" font-size="12">#D9D2C7</text>
+
+    <!-- surface -->
+    <rect x="184"  y="0" width="164" height="72" rx="6" fill="#FDFBF7" stroke="#D9D2C7"/>
+    <text class="label ink" x="184"  y="96" font-size="13">surface</text>
+    <text class="hex muted" x="184"  y="114" font-size="12">#FDFBF7</text>
+
+    <!-- surface-muted -->
+    <rect x="368"  y="0" width="164" height="72" rx="6" fill="#F5F1EB" stroke="#D9D2C7"/>
+    <text class="label ink" x="368"  y="96" font-size="13">surface-muted</text>
+    <text class="hex muted" x="368"  y="114" font-size="12">#F5F1EB</text>
+
+    <!-- success -->
+    <rect x="552"  y="0" width="164" height="72" rx="6" fill="#4A7D5A"/>
+    <text class="label ink" x="552"  y="96" font-size="13">success</text>
+    <text class="hex muted" x="552"  y="114" font-size="12">#4A7D5A</text>
+
+    <!-- warning -->
+    <rect x="736"  y="0" width="164" height="72" rx="6" fill="#C89025"/>
+    <text class="label ink" x="736"  y="96" font-size="13">warning</text>
+    <text class="hex muted" x="736"  y="114" font-size="12">#C89025</text>
+
+    <!-- danger -->
+    <rect x="920"  y="0" width="164" height="72" rx="6" fill="#A63A2F"/>
+    <text class="label ink" x="920"  y="96" font-size="13">danger</text>
+    <text class="hex muted" x="920"  y="114" font-size="12">#A63A2F</text>
+  </g>
+
+  <!-- Footer line -->
+  <rect x="48" y="460" width="1104" height="1" class="border"/>
+</svg>
