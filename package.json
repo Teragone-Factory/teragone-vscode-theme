@@ -1,0 +1,34 @@
+{
+  "name": "teragone-factory-theme",
+  "displayName": "Teragone Factory",
+  "description": "Warm-expert light theme for long-form documentation work. Terracotta accents on cream, sampled from the Teragone Factory wordmark.",
+  "version": "0.1.0",
+  "publisher": "teragone-factory",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "light",
+    "warm",
+    "terracotta",
+    "documentation"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Teragone Factory",
+        "uiTheme": "vs",
+        "path": "./themes/teragone-factory-color-theme.json"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "local"
+  }
+}

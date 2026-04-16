@@ -1,0 +1,5 @@
+node_modules/
+*.vsix
+
+# Local, uncommitted scratchpad
+BACKLOG.md
