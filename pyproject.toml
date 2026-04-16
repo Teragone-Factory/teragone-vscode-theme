@@ -1,0 +1,12 @@
+[project]
+name = "teragone-vscode-theme-tooling"
+version = "0.0.0"
+description = "Local tooling (parity test) for the Teragone Factory VSCode theme."
+requires-python = ">=3.11"
+dependencies = [
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

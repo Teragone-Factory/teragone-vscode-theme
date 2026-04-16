@@ -1,0 +1,18 @@
+default: true
+
+# Line length — disabled: the README palette table and badge row exceed 80 cols
+# on purpose, and readability of the rendered output is what matters.
+MD013: false
+
+# Inline HTML — allowed so we can use <!-- palette:start --> markers.
+MD033:
+  allowed_elements:
+    - "!-- palette:start --"
+    - "!-- palette:end --"
+
+# First-line heading — relax to accommodate badge rows between H1 and first
+# paragraph.
+MD041: false
+
+# Bare URLs — allow for links inside CHANGELOG anchor references.
+MD034: false
