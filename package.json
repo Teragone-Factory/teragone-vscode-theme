@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "publisher": "teragone-factory",
   "license": "MIT",
+  "icon": "assets/icon.png",
   "engines": {
     "vscode": "^1.80.0"
   },
@@ -16,8 +17,17 @@
     "light",
     "warm",
     "terracotta",
-    "documentation"
+    "cream",
+    "factory",
+    "documentation",
+    "markdown",
+    "mermaid",
+    "prose"
   ],
+  "galleryBanner": {
+    "color": "#FDFBF7",
+    "theme": "light"
+  },
   "contributes": {
     "themes": [
       {
@@ -32,6 +42,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "local"
+    "url": "https://github.com/Teragone-Factory/teragone-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Teragone-Factory/teragone-vscode-theme/issues"
+  },
+  "homepage": "https://github.com/Teragone-Factory/teragone-vscode-theme#readme",
+  "scripts": {
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.2.1"
   }
 }
