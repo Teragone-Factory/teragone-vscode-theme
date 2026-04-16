@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Teragone Factory — mark only.
+  Two interlocking hexagons (the signature Teragone geometry):
+    1. Flat-top hexagon, 45° chamfered corners, lower-left
+    2. Rectangle with two opposite corners chamfered at 45°, upper-right
+  Geometry traced from assets/teragone-mark.svg (kept alongside as
+  the authoritative source); recoloured to the Factory terracotta.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 463 293" shape-rendering="geometricPrecision" role="img" aria-label="Teragone Factory mark">
+  <title>Teragone Factory mark</title>
+  <g fill="#C85A2C" fill-rule="evenodd">
+    <!-- Lower-left hexagon (flat-top, all corners 45°-chamfered) -->
+    <path d="M1 223 71.9 153 196.1 153 267 223 196.1 293 71.9 293 Z"/>
+    <!-- Upper-right shape (rectangle, two opposite corners 45°-chamfered) -->
+    <path d="M173.17 3.92 272.66 4.49 461.65 193.22 462.35 292.7 362.87 292.14 173.88 103.4 Z"/>
+  </g>
+</svg>

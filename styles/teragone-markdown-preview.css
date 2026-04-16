@@ -1,0 +1,642 @@
+/* =============================================================================
+   Teragone Factory — Markdown Preview Stylesheet (VSCode)
+   -----------------------------------------------------------------------------
+   Contributed via `package.json` -> `contributes.markdown.previewStyles`.
+   Palette mirrors the editor theme (themes/teragone-factory-color-theme.json),
+   the Typst deck template, and the MkDocs brand layer. Cream surface,
+   terracotta accents, warm neutrals. Never pure white, never cold grey.
+
+   Pairs with `bierner.markdown-mermaid`: mermaid diagrams render as inline
+   SVG and are re-skinned below. For full fidelity also set
+   `markdown-mermaid.lightModeTheme`: "base" in settings.json.
+   ============================================================================= */
+
+:root {
+  /* Brand */
+  --tg-brand-primary: #C85A2C;
+  --tg-brand-primary-dark: #9E4421;
+  --tg-brand-primary-soft: #FCEFE6;
+
+  /* Warm neutrals */
+  --tg-ink: #1A1614;
+  --tg-text-primary: #2B2620;
+  --tg-text-muted: #6B615A;
+  --tg-border: #D9D2C7;
+  --tg-border-strong: #9B8E7B;
+  --tg-surface: #FDFBF7;
+  --tg-surface-muted: #F5F1EB;
+  --tg-surface-sunken: #EBE4D9;
+
+  /* Status — harmonised with the warm palette */
+  --tg-success: #4A7D5A;
+  --tg-warning: #C89025;
+  --tg-danger:  #A63A2F;
+
+  /* Typography */
+  --tg-font-body: "Plus Jakarta Sans", "Inter var", -apple-system,
+                  "SF Pro Text", "Helvetica Neue", sans-serif;
+  --tg-font-head: "Switzer", "Plus Jakarta Sans", -apple-system,
+                  "SF Pro Display", "Helvetica Neue", sans-serif;
+  --tg-font-mono: "JetBrains Mono", "Roboto Mono", "SF Mono",
+                  Menlo, Consolas, monospace;
+
+  /* Rhythm */
+  --tg-radius-sm: 4px;
+  --tg-radius-md: 8px;
+  --tg-gap-tight: 0.4rem;
+  --tg-gap: 0.8rem;
+  --tg-gap-loose: 1.6rem;
+
+  /* ---- Override VSCode's theme variables ---------------------------------
+     VSCode's built-in markdown preview stylesheet reads `--vscode-*` custom
+     properties from the active editor theme and paints the body/code/links
+     with them. Re-binding those variables here forces the brand palette
+     regardless of whether the editor is on a light or dark theme.          */
+  --vscode-editor-background: var(--tg-surface);
+  --vscode-editor-foreground: var(--tg-text-primary);
+  --vscode-foreground: var(--tg-text-primary);
+  --vscode-descriptionForeground: var(--tg-text-muted);
+  --vscode-textLink-foreground: var(--tg-brand-primary);
+  --vscode-textLink-activeForeground: var(--tg-brand-primary-dark);
+  --vscode-textPreformat-foreground: var(--tg-brand-primary-dark);
+  --vscode-textPreformat-background: var(--tg-surface-muted);
+  --vscode-textCodeBlock-background: var(--tg-surface-muted);
+  --vscode-textBlockQuote-background: var(--tg-surface-muted);
+  --vscode-textBlockQuote-border: var(--tg-brand-primary);
+  --vscode-textSeparator-foreground: var(--tg-border);
+}
+
+/* Force the cream surface on the preview root even when VSCode injects
+   its own body background via inline style or when another preview-style
+   contributor (e.g. bierner.markdown-preview-github-styles) paints the
+   .markdown-body wrapper dark. */
+html, body,
+body.vscode-light,
+body.vscode-dark,
+body.vscode-high-contrast,
+body.vscode-high-contrast-light,
+.markdown-body,
+article.markdown-body,
+main.markdown-body {
+  background-color: var(--tg-surface) !important;
+  color: var(--tg-text-primary) !important;
+}
+
+/* GitHub-styles overrides — its rules carry `.markdown-body ...` specificity
+   and would otherwise win on zebra rows, code blocks, and headings. */
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  color: var(--tg-ink) !important;
+  background: transparent !important;
+  border-bottom-color: var(--tg-brand-primary) !important;
+}
+.markdown-body h2 { color: var(--tg-ink) !important; }
+.markdown-body h3 { color: var(--tg-brand-primary-dark) !important; }
+
+.markdown-body p,
+.markdown-body li,
+.markdown-body td,
+.markdown-body dd {
+  color: var(--tg-text-primary) !important;
+}
+
+.markdown-body a { color: var(--tg-brand-primary) !important; }
+
+.markdown-body hr { background-color: var(--tg-border) !important; }
+
+.markdown-body table tr,
+.markdown-body table tbody tr {
+  background-color: var(--tg-surface) !important;
+  border-top-color: var(--tg-border) !important;
+}
+.markdown-body table tr:nth-child(2n),
+.markdown-body table tbody tr:nth-child(even) {
+  background-color: var(--tg-surface-muted) !important;
+}
+.markdown-body table th,
+.markdown-body table thead th,
+.markdown-body table > thead > tr > th {
+  background-color: var(--tg-brand-primary) !important;
+  color: var(--tg-surface) !important;
+  border-color: var(--tg-brand-primary-dark) !important;
+}
+.markdown-body table td,
+.markdown-body table th {
+  border-color: var(--tg-border) !important;
+}
+
+.markdown-body code,
+.markdown-body :not(pre) > code {
+  background-color: var(--tg-surface-muted) !important;
+  color: var(--tg-brand-primary-dark) !important;
+  border: 1px solid var(--tg-border) !important;
+}
+.markdown-body pre {
+  background-color: var(--tg-surface-muted) !important;
+  color: var(--tg-text-primary) !important;
+  border: 1px solid var(--tg-border) !important;
+}
+.markdown-body pre code {
+  background: transparent !important;
+  border: 0 !important;
+  color: var(--tg-text-primary) !important;
+}
+
+.markdown-body blockquote {
+  background-color: var(--tg-surface-muted) !important;
+  color: var(--tg-text-primary) !important;
+  border-left-color: var(--tg-brand-primary) !important;
+}
+
+.markdown-body img { background-color: var(--tg-surface) !important; }
+
+/* -----------------------------------------------------------------------------
+   Page frame
+   -------------------------------------------------------------------------- */
+
+body.vscode-body,
+body {
+  background: var(--tg-surface);
+  color: var(--tg-text-primary);
+  font-family: var(--tg-font-body);
+  font-size: 15px;
+  line-height: 1.65;
+  font-feature-settings: "kern", "liga", "calt", "ss01";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 2rem clamp(1rem, 4vw, 3rem);
+  max-width: 78ch;
+  margin: 0 auto;
+}
+
+body.vscode-light,
+body.vscode-high-contrast-light {
+  background: var(--tg-surface);
+  color: var(--tg-text-primary);
+}
+
+/* Hard-overriding dark-mode preview: the brand is warm; dark markdown
+   preview is out of scope for this theme. Users who insist on dark VSCode
+   still get the terracotta+cream preview — consistent with the MkDocs site. */
+body.vscode-dark,
+body.vscode-high-contrast {
+  background: var(--tg-surface);
+  color: var(--tg-text-primary);
+}
+
+/* -----------------------------------------------------------------------------
+   Headings — match the MkDocs + Typst rules
+   H1: terracotta under-rule
+   H2: terracotta spine (brand consistency with the site, not an AI-tell card)
+   H3: terracotta-dark for subordinate emphasis
+   -------------------------------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--tg-font-head);
+  color: var(--tg-ink);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-top: 2.4rem;
+  margin-bottom: 0.8rem;
+}
+
+h1:first-child, h2:first-child, h3:first-child { margin-top: 0.2rem; }
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  border-bottom: 3px solid var(--tg-brand-primary);
+  padding-bottom: 0.35rem;
+  letter-spacing: -0.015em;
+}
+
+h2 {
+  font-size: 1.55rem;
+  padding-left: 0.7rem;
+  border-left: 4px solid var(--tg-brand-primary);
+}
+
+h3 {
+  font-size: 1.22rem;
+  color: var(--tg-brand-primary-dark);
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 1.05rem;
+  color: var(--tg-brand-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+h5, h6 {
+  font-size: 0.92rem;
+  color: var(--tg-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+
+/* Heading anchor affordance from VSCode */
+h1 a.anchor, h2 a.anchor, h3 a.anchor, h4 a.anchor, h5 a.anchor, h6 a.anchor {
+  color: var(--tg-brand-primary);
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor,
+h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor { opacity: 0.75; }
+
+/* -----------------------------------------------------------------------------
+   Body text + links
+   -------------------------------------------------------------------------- */
+
+p {
+  margin: 0 0 1rem;
+  max-width: 72ch;
+}
+
+a {
+  color: var(--tg-brand-primary);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklch, var(--tg-brand-primary) 50%, transparent);
+  transition: border-color 0.12s ease, color 0.12s ease;
+}
+a:hover {
+  color: var(--tg-brand-primary-dark);
+  border-bottom-color: var(--tg-brand-primary-dark);
+}
+
+strong, b { color: var(--tg-ink); font-weight: 700; }
+em, i     { color: var(--tg-brand-primary); font-style: italic; }
+
+/* Abbreviations */
+abbr[title] {
+  border-bottom: 1px dotted var(--tg-border-strong);
+  cursor: help;
+  text-decoration: none;
+}
+
+/* Horizontal rule — terracotta dash, not a flat grey line */
+hr {
+  border: 0;
+  margin: 2rem 0;
+  height: 2px;
+  background: linear-gradient(to right,
+    var(--tg-brand-primary) 0,
+    var(--tg-brand-primary) 48px,
+    var(--tg-border) 48px,
+    var(--tg-border) 100%
+  );
+}
+
+/* -----------------------------------------------------------------------------
+   Lists
+   -------------------------------------------------------------------------- */
+
+ul, ol { margin: 0 0 1rem; padding-left: 1.6rem; }
+li { margin-bottom: 0.35rem; }
+li::marker { color: var(--tg-brand-primary); font-weight: 700; }
+
+/* Task lists — warm checkboxes */
+li.task-list-item { list-style: none; margin-left: -1rem; }
+li.task-list-item input[type="checkbox"] {
+  accent-color: var(--tg-brand-primary);
+  margin-right: 0.4rem;
+  transform: translateY(1px);
+}
+
+/* -----------------------------------------------------------------------------
+   Blockquote — reads as an aside, terracotta signal
+   -------------------------------------------------------------------------- */
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.6rem 1rem;
+  border-left: 3px solid var(--tg-brand-primary);
+  background: var(--tg-surface-muted);
+  color: var(--tg-text-primary);
+  border-radius: 0 var(--tg-radius-sm) var(--tg-radius-sm) 0;
+  font-style: normal;
+}
+blockquote > :last-child { margin-bottom: 0; }
+blockquote cite {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.85em;
+  color: var(--tg-text-muted);
+  font-style: italic;
+}
+
+/* -----------------------------------------------------------------------------
+   Tables — Teragone dense rhythm (matches MkDocs + Typst)
+   -------------------------------------------------------------------------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0;
+  font-size: 0.92em;
+  line-height: 1.5;
+  border: 1px solid var(--tg-border);
+  border-radius: var(--tg-radius-sm);
+  overflow: hidden;
+}
+table thead,
+table > thead > tr,
+body table thead tr {
+  background: var(--tg-brand-primary);
+}
+table th,
+table thead th,
+table > thead > tr > th,
+body table thead tr th {
+  background: var(--tg-brand-primary);
+  color: var(--tg-surface);
+  padding: 0.55rem 0.8rem;
+  text-align: left;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  border-bottom: 1px solid var(--tg-brand-primary-dark);
+}
+td {
+  padding: 0.5rem 0.8rem;
+  border-top: 1px solid var(--tg-border);
+  color: var(--tg-text-primary);
+  vertical-align: top;
+}
+tbody tr:nth-child(even) { background: var(--tg-surface-muted); }
+tbody tr:hover { background: var(--tg-brand-primary-soft); }
+
+/* -----------------------------------------------------------------------------
+   Code — inline + fenced
+   -------------------------------------------------------------------------- */
+
+code {
+  font-family: var(--tg-font-mono);
+  font-size: 0.88em;
+  background: var(--tg-surface-muted);
+  color: var(--tg-brand-primary-dark);
+  padding: 0.1em 0.38em;
+  border-radius: 3px;
+  border: 1px solid var(--tg-border);
+}
+
+pre {
+  background: var(--tg-surface-muted);
+  border: 1px solid var(--tg-border);
+  border-radius: var(--tg-radius-sm);
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+  font-size: 0.86em;
+  line-height: 1.55;
+  position: relative;
+}
+pre code {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: var(--tg-text-primary);
+  font-size: inherit;
+}
+
+/* Fenced-code language badge (works when markdown-it adds `.language-xxx`) */
+pre[class*="language-"]::before {
+  content: attr(data-lang);
+  display: none; /* kept for extension authors — opt-in */
+}
+
+/* Keyboard keys */
+kbd {
+  font-family: var(--tg-font-mono);
+  font-size: 0.82em;
+  background: var(--tg-surface);
+  border: 1px solid var(--tg-border-strong);
+  border-bottom-width: 2px;
+  border-radius: 3px;
+  padding: 0.1em 0.42em;
+  color: var(--tg-ink);
+  box-shadow: 0 1px 0 rgba(26, 22, 20, 0.08);
+}
+
+/* -----------------------------------------------------------------------------
+   Images + figures
+   -------------------------------------------------------------------------- */
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--tg-radius-sm);
+  border: 1px solid var(--tg-border);
+  background: var(--tg-surface);
+}
+figure { margin: 1.4rem 0; text-align: left; }
+figcaption {
+  font-size: 0.86em;
+  color: var(--tg-text-muted);
+  font-style: italic;
+  margin-top: 0.35rem;
+  padding-left: 0.5rem;
+  border-left: 2px solid var(--tg-brand-primary-soft);
+}
+
+/* -----------------------------------------------------------------------------
+   Syntax highlighting — VSCode's built-in highlight.js classes
+   Palette stays faithful to the editor theme so preview looks like the code.
+   -------------------------------------------------------------------------- */
+
+.hljs, code[class*="language-"] {
+  color: var(--tg-text-primary);
+  background: transparent;
+}
+
+.hljs-comment, .hljs-quote, .token.comment { color: var(--tg-border-strong); font-style: italic; }
+.hljs-string, .hljs-attr, .token.string    { color: var(--tg-success); }
+.hljs-number, .hljs-literal, .token.number,
+.token.boolean                              { color: var(--tg-warning); }
+.hljs-keyword, .hljs-selector-tag,
+.token.keyword, .token.operator             { color: var(--tg-brand-primary); font-weight: 600; }
+.hljs-built_in, .hljs-type, .token.builtin  { color: var(--tg-brand-primary-dark); }
+.hljs-title, .hljs-function, .token.function{ color: var(--tg-brand-primary-dark); font-weight: 600; }
+.hljs-variable, .hljs-template-variable,
+.token.variable                             { color: var(--tg-text-primary); }
+.hljs-tag, .token.tag                       { color: var(--tg-brand-primary-dark); }
+.hljs-attribute, .token.attr-name           { color: var(--tg-warning); font-style: italic; }
+.hljs-symbol, .hljs-bullet, .token.symbol   { color: var(--tg-brand-primary); }
+.hljs-link, .token.url                      { color: var(--tg-brand-primary); text-decoration: underline; }
+.hljs-meta, .token.meta                     { color: var(--tg-text-muted); }
+.hljs-deletion, .token.deleted              { color: var(--tg-danger); background: color-mix(in oklch, var(--tg-danger) 8%, transparent); }
+.hljs-addition, .token.inserted             { color: var(--tg-success); background: color-mix(in oklch, var(--tg-success) 10%, transparent); }
+.hljs-emphasis                              { font-style: italic; }
+.hljs-strong                                { font-weight: 700; color: var(--tg-ink); }
+
+/* -----------------------------------------------------------------------------
+   Admonitions / callouts (when authored via GFM alerts `> [!NOTE]`)
+   -------------------------------------------------------------------------- */
+
+.markdown-alert {
+  padding: 0.6rem 1rem;
+  margin: 1.2rem 0;
+  border-radius: var(--tg-radius-sm);
+  background: var(--tg-surface-muted);
+  border-left: 3px solid var(--tg-brand-primary);
+}
+.markdown-alert-title {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.78em;
+  margin: 0 0 0.35rem;
+  color: var(--tg-brand-primary);
+}
+.markdown-alert.markdown-alert-note     { border-left-color: var(--tg-brand-primary); }
+.markdown-alert.markdown-alert-tip      { border-left-color: var(--tg-success);
+                                          background: color-mix(in oklch, var(--tg-success) 8%, var(--tg-surface-muted)); }
+.markdown-alert.markdown-alert-tip .markdown-alert-title       { color: var(--tg-success); }
+.markdown-alert.markdown-alert-important{ border-left-color: var(--tg-brand-primary-dark);
+                                          background: color-mix(in oklch, var(--tg-brand-primary) 10%, var(--tg-surface-muted)); }
+.markdown-alert.markdown-alert-important .markdown-alert-title { color: var(--tg-brand-primary-dark); }
+.markdown-alert.markdown-alert-warning  { border-left-color: var(--tg-warning);
+                                          background: color-mix(in oklch, var(--tg-warning) 10%, var(--tg-surface-muted)); }
+.markdown-alert.markdown-alert-warning .markdown-alert-title   { color: var(--tg-warning); }
+.markdown-alert.markdown-alert-caution  { border-left-color: var(--tg-danger);
+                                          background: color-mix(in oklch, var(--tg-danger) 8%, var(--tg-surface-muted)); }
+.markdown-alert.markdown-alert-caution .markdown-alert-title   { color: var(--tg-danger); }
+
+/* =============================================================================
+   MERMAID — re-skin the `bierner.markdown-mermaid` output
+   Requires `markdown-mermaid.lightModeTheme`: "base" for cleanest results.
+   ============================================================================= */
+
+.mermaid {
+  margin: 1.4rem 0;
+  padding: 0.6rem 0.8rem;
+  background: var(--tg-surface);
+  border: 1px solid var(--tg-border);
+  border-top: 3px solid var(--tg-brand-primary);
+  border-radius: var(--tg-radius-sm);
+  text-align: center;
+  font-family: var(--tg-font-body);
+}
+.mermaid svg { max-width: 100%; height: auto; font-family: var(--tg-font-body) !important; }
+
+/* Flowchart nodes */
+.mermaid .node rect,
+.mermaid .node polygon,
+.mermaid .node circle,
+.mermaid .node ellipse,
+.mermaid .node path {
+  fill: var(--tg-surface-muted) !important;
+  stroke: var(--tg-brand-primary) !important;
+  stroke-width: 1.5px !important;
+}
+.mermaid .node.default rect { rx: 4px; ry: 4px; }
+.mermaid .node .label,
+.mermaid .node text,
+.mermaid g.label text,
+.mermaid .nodeLabel { color: var(--tg-ink) !important; fill: var(--tg-ink) !important; font-weight: 500; }
+
+/* Cluster / subgraph */
+.mermaid .cluster rect {
+  fill: var(--tg-surface) !important;
+  stroke: var(--tg-border-strong) !important;
+  stroke-dasharray: 4 3 !important;
+  stroke-width: 1px !important;
+}
+.mermaid .cluster text { fill: var(--tg-brand-primary-dark) !important; font-weight: 600; }
+
+/* Edges / arrows */
+.mermaid .flowchart-link,
+.mermaid .edge-thickness-normal,
+.mermaid path.flowchart-link { stroke: var(--tg-text-muted) !important; stroke-width: 1.3px !important; fill: none !important; }
+.mermaid .arrowheadPath,
+.mermaid marker path          { fill: var(--tg-text-muted) !important; stroke: var(--tg-text-muted) !important; }
+.mermaid .edgeLabel {
+  background-color: var(--tg-surface) !important;
+  color: var(--tg-text-primary) !important;
+  font-size: 0.82em !important;
+  padding: 0 0.2em !important;
+}
+.mermaid .edgeLabel rect { fill: var(--tg-surface) !important; }
+
+/* Sequence diagrams */
+.mermaid .actor,
+.mermaid rect.actor {
+  fill: var(--tg-brand-primary-soft) !important;
+  stroke: var(--tg-brand-primary) !important;
+}
+.mermaid text.actor, .mermaid .actor-box text { fill: var(--tg-ink) !important; font-weight: 600; }
+.mermaid line.actor-line { stroke: var(--tg-border-strong) !important; stroke-dasharray: 3 3 !important; }
+.mermaid .messageLine0, .mermaid .messageLine1 { stroke: var(--tg-text-muted) !important; stroke-width: 1.2px !important; }
+.mermaid .messageText { fill: var(--tg-text-primary) !important; }
+.mermaid .labelBox    { fill: var(--tg-brand-primary) !important; stroke: var(--tg-brand-primary-dark) !important; }
+.mermaid .labelText   { fill: var(--tg-surface) !important; font-weight: 600; }
+.mermaid .loopLine    { stroke: var(--tg-brand-primary) !important; }
+.mermaid .loopText    { fill: var(--tg-brand-primary-dark) !important; }
+.mermaid .note        { fill: var(--tg-surface-muted) !important; stroke: var(--tg-border-strong) !important; }
+.mermaid .noteText    { fill: var(--tg-text-primary) !important; }
+
+/* Class diagrams */
+.mermaid g.classGroup rect      { fill: var(--tg-surface-muted) !important; stroke: var(--tg-brand-primary) !important; }
+.mermaid g.classGroup text      { fill: var(--tg-ink) !important; }
+.mermaid g.classGroup line      { stroke: var(--tg-border) !important; }
+.mermaid .relation              { stroke: var(--tg-text-muted) !important; fill: none !important; }
+
+/* State diagrams */
+.mermaid g.stateGroup rect      { fill: var(--tg-surface-muted) !important; stroke: var(--tg-brand-primary) !important; rx: 6; ry: 6; }
+.mermaid g.stateGroup text      { fill: var(--tg-ink) !important; }
+.mermaid g.stateGroup .state-title { fill: var(--tg-brand-primary-dark) !important; font-weight: 600; }
+.mermaid .transition            { stroke: var(--tg-text-muted) !important; fill: none !important; }
+
+/* ER diagrams */
+.mermaid .entityBox             { fill: var(--tg-surface-muted) !important; stroke: var(--tg-brand-primary) !important; }
+.mermaid .entityLabel           { fill: var(--tg-ink) !important; font-weight: 600; }
+.mermaid .attributeBoxEven      { fill: var(--tg-surface) !important; }
+.mermaid .attributeBoxOdd       { fill: var(--tg-surface-muted) !important; }
+.mermaid .relationshipLine      { stroke: var(--tg-text-muted) !important; }
+
+/* Gantt */
+.mermaid .grid .tick line        { stroke: var(--tg-border) !important; }
+.mermaid .grid path              { stroke-width: 0 !important; }
+.mermaid .task                   { fill: var(--tg-brand-primary-soft) !important; stroke: var(--tg-brand-primary) !important; }
+.mermaid .taskText               { fill: var(--tg-ink) !important; }
+.mermaid .taskTextOutsideRight,
+.mermaid .taskTextOutsideLeft    { fill: var(--tg-text-muted) !important; }
+.mermaid .today                  { stroke: var(--tg-danger) !important; stroke-width: 1.5px !important; }
+.mermaid .section0, .mermaid .section2 { fill: var(--tg-surface-muted) !important; }
+.mermaid .section1, .mermaid .section3 { fill: var(--tg-surface) !important; }
+
+/* Pie */
+.mermaid .pieCircle              { stroke: var(--tg-surface) !important; stroke-width: 2px !important; }
+.mermaid .pieTitleText           { fill: var(--tg-ink) !important; font-weight: 700; }
+.mermaid .slice                  { font-weight: 600; fill: var(--tg-ink) !important; }
+
+/* Journey */
+.mermaid .journey-section        { fill: var(--tg-brand-primary-soft) !important; }
+.mermaid .task-type-0            { fill: var(--tg-danger) !important; }
+.mermaid .task-type-1            { fill: var(--tg-warning) !important; }
+.mermaid .task-type-2            { fill: var(--tg-success) !important; }
+
+/* Generic labels */
+.mermaid .titleText              { fill: var(--tg-ink) !important; font-weight: 700; font-size: 1.05em !important; }
+
+/* -----------------------------------------------------------------------------
+   Print — stays legible on paper exports
+   -------------------------------------------------------------------------- */
+
+@media print {
+  body { max-width: 100%; padding: 0; font-size: 10.5pt; }
+  pre, table, figure, .mermaid { page-break-inside: avoid; }
+  h1, h2 { page-break-after: avoid; }
+  h1 { page-break-before: always; }
+  h1:first-child { page-break-before: avoid; }
+  a { color: var(--tg-brand-primary-dark); border-bottom: 0; }
+}

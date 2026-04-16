@@ -25,6 +25,9 @@
         "uiTheme": "vs",
         "path": "./themes/teragone-factory-color-theme.json"
       }
+    ],
+    "markdown.previewStyles": [
+      "./styles/teragone-markdown-preview.css"
     ]
   },
   "repository": {

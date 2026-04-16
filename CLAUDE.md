@@ -6,7 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A single-theme VSCode extension: **Teragone Factory**, a warm light theme
 (terracotta on cream) for long-form documentation work. No build step, no
-tests, no source code — the extension is a manifest plus one theme JSON.
+tests, no source code — the extension is a manifest, one theme JSON, and
+a markdown-preview stylesheet (themes both the prose and mermaid output).
 
 ## Commands
 
@@ -40,6 +41,14 @@ three sections the manifest points VSCode at:
 `package.json` registers the theme under `contributes.themes` with
 `uiTheme: "vs"` (light base). Changing `label` or `path` there requires
 re-running the symlink/package step.
+
+`styles/teragone-markdown-preview.css` is contributed via
+`contributes.markdown.previewStyles` and re-skins the built-in markdown
+preview plus mermaid diagrams rendered by `bierner.markdown-mermaid`. It
+redeclares `--vscode-*` variables so the preview stays on-brand even when
+the editor is set to a dark theme. For cleanest mermaid output users
+should set `"markdown-mermaid.lightModeTheme": "base"`. Keep its palette
+in sync with the theme JSON — both derive from the same tokens.
 
 ## Palette discipline
 
