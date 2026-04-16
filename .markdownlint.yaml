@@ -9,6 +9,13 @@ MD033:
   allowed_elements:
     - "!-- palette:start --"
     - "!-- palette:end --"
+    - "!-- palette-dark:start --"
+    - "!-- palette-dark:end --"
+
+# Duplicate headings — allow under different parents so Keep-a-Changelog's
+# repeating "### Added" / "### Fixed" / "### Changed" sections lint clean.
+MD024:
+  siblings_only: true
 
 # First-line heading — relax to accommodate badge rows between H1 and first
 # paragraph.
