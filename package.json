@@ -2,7 +2,7 @@
   "name": "teragone-factory-theme",
   "displayName": "Teragone Factory",
   "description": "Warm-expert theme (light + dark) for long-form documentation work. Terracotta accents on cream — or on warm fired-clay dark — sampled from the Teragone Factory wordmark.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "teragone-factory",
   "license": "MIT",
   "icon": "assets/icon.png",
