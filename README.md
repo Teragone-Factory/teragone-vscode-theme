@@ -23,15 +23,19 @@ layer used across long-form audit deliverables.
 
 ### In the editor
 
-![Editor — syntax highlighting across CSS and JSON](docs/screenshots/editor.png)
+![Editor — Teragone Factory: terracotta accents on warm cream](docs/screenshots/editor.png)
+
+![Editor — Teragone Factory Dark: lifted terracotta on warm fired-clay](docs/screenshots/editor-dark.png)
 
 ### In the markdown preview
 
-![Markdown preview — README rendered with the bundled stylesheet](docs/screenshots/markdown-preview.png)
+![Markdown preview — README rendered with the bundled stylesheet (stays cream regardless of editor theme, by design)](docs/screenshots/markdown-preview.png)
 
 ### Workbench chrome
 
-![Workbench — dark title and activity bars against warm cream surfaces](docs/screenshots/workbench.png)
+![Workbench — Teragone Factory: ink-dark title and activity bars against warm cream surfaces](docs/screenshots/workbench.png)
+
+![Workbench — Teragone Factory Dark: same chrome layout in warm fired-clay](docs/screenshots/workbench-dark.png)
 
 ## Install
 
