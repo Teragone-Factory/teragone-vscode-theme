@@ -15,9 +15,17 @@ layer used across long-form audit deliverables.
 
 ![Teragone Factory palette](docs/brand/palette.png)
 
-Real screenshots of the theme in an editor window, the markdown preview,
-and a mermaid diagram will land in `docs/screenshots/` — see `BACKLOG.md`
-for the capture script that will regenerate them.
+### In the editor
+
+![Editor — syntax highlighting across CSS and JSON](docs/screenshots/editor.png)
+
+### In the markdown preview
+
+![Markdown preview — README rendered with the bundled stylesheet](docs/screenshots/markdown-preview.png)
+
+### Workbench chrome
+
+![Workbench — dark title and activity bars against warm cream surfaces](docs/screenshots/workbench.png)
 
 ## Install
 
