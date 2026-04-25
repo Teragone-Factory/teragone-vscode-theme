@@ -559,13 +559,29 @@ figcaption {
 .mermaid path.flowchart-link { stroke: var(--tg-text-muted) !important; stroke-width: 1.3px !important; fill: none !important; }
 .mermaid .arrowheadPath,
 .mermaid marker path          { fill: var(--tg-text-muted) !important; stroke: var(--tg-text-muted) !important; }
-.mermaid .edgeLabel {
+/* Mermaid renders edge labels as a <g class="edgeLabel"> wrapping a
+   <foreignObject> whose inner HTML is <div.labelBkg><span.edgeLabel><p>…
+   The foreignObject is pre-sized by mermaid against its own default
+   font, so we must NOT shrink the text or add padding on the inner
+   span — both compound (the .edgeLabel selector matches the outer <g>
+   and the inner <span>) and clip the glyphs to invisibility. Style
+   chrome on the SVG group, leave text sizing inherited. */
+.mermaid g.edgeLabel rect,
+.mermaid rect.label-container { fill: var(--tg-surface) !important; }
+.mermaid g.edgeLabel foreignObject .labelBkg {
   background-color: var(--tg-surface) !important;
-  color: var(--tg-text-primary) !important;
-  font-size: 0.82em !important;
-  padding: 0 0.2em !important;
 }
-.mermaid .edgeLabel rect { fill: var(--tg-surface) !important; }
+.mermaid g.edgeLabel foreignObject .edgeLabel,
+.mermaid g.edgeLabel foreignObject .edgeLabel p,
+.mermaid g.edgeLabel foreignObject span {
+  color: var(--tg-text-primary) !important;
+  background-color: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: inherit !important;
+  max-width: none !important;
+}
+.mermaid g.edgeLabel text { fill: var(--tg-text-primary) !important; }
 
 /* Sequence diagrams */
 .mermaid .actor,

@@ -31,6 +31,8 @@ layer used across long-form audit deliverables.
 
 ![Markdown preview — README rendered with the bundled stylesheet (stays cream regardless of editor theme, by design)](docs/screenshots/markdown-preview.png)
 
+![Mermaid — flowchart rendered via the bundled preview stylesheet with `markdown-mermaid.lightModeTheme` set to `base`](docs/screenshots/mermaid.png)
+
 ### Workbench chrome
 
 ![Workbench — Teragone Factory: ink-dark title and activity bars against warm cream surfaces](docs/screenshots/workbench.png)

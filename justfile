@@ -50,6 +50,10 @@ lint:
 parity:
     uv run pytest tests/test_palette_parity.py -q
 
+# Regenerate docs/screenshots/*.png (macOS). Pass target names to limit scope.
+screenshots *TARGETS:
+    scripts/capture-screenshots.sh {{ TARGETS }}
+
 # Assert package.json version, latest CHANGELOG entry, and current git tag (if any) agree.
 check-version:
     #!/usr/bin/env bash
