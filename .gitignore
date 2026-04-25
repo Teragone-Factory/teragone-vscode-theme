@@ -11,3 +11,6 @@ BACKLOG.md
 
 # Personal SOD/EOD scratchpad
 .personal/
+
+# macOS Finder metadata
+.DS_Store
