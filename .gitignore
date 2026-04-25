@@ -8,3 +8,6 @@ __pycache__/
 
 # Local, uncommitted scratchpad
 BACKLOG.md
+
+# Personal SOD/EOD scratchpad
+.personal/
