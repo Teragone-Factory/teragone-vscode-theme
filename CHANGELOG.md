@@ -6,6 +6,31 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.2.1] — 2026-04-25
+
+### Fixed
+
+- Markdown preview: mermaid edge labels (e.g. `yes`/`no` on flowchart
+  conditional arrows) rendered invisible. The `.mermaid .edgeLabel`
+  rule matched both the outer SVG `<g>` and the inner HTML `<span>`,
+  so `font-size: 0.82em` compounded along the chain and
+  `padding: 0 0.2em` pushed glyphs out of the foreignObject's clipping
+  box (mermaid pre-sizes that box against its own 16px text
+  measurement, leaving no slack). Split the rule: chrome on the SVG
+  group, text inside the foreignObject with `font-size: inherit` and
+  `padding: 0`.
+
+### Added
+
+- `scripts/capture-screenshots.sh` — semi-automated, macOS-only
+  capture for `docs/screenshots/`. Walks each target with an
+  instruction prompt and `screencapture -w` (interactive window pick).
+- `docs/fixtures/` — minimal source files (Python, TypeScript,
+  Markdown, mermaid) used by the capture script.
+- `justfile`: `screenshots` recipe wrapping the capture script.
+- README: mermaid screenshot embedded in the "At a glance" section.
+- `.vscodeignore`: `scripts/**` excluded from the VSIX.
+
 ## [0.2.0] — 2026-04-16
 
 ### Added
