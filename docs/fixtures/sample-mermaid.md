@@ -1,7 +1,9 @@
 # Audit pipeline — mermaid fixture
 
-Used to capture `docs/screenshots/mermaid.png`. Requires the
-`bierner.markdown-mermaid` extension and, for cleanest output,
+Used to capture `docs/screenshots/mermaid.png`. Requires mermaid preview
+support — built into VS Code ≥ 1.123 (`mermaid-markdown-features`); on
+older versions, the now-deprecated `bierner.markdown-mermaid` extension
+(don't keep both, see README). For cleanest output, set
 `"markdown-mermaid.lightModeTheme": "base"` in settings.
 
 ```mermaid

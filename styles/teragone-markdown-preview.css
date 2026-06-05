@@ -6,8 +6,10 @@
    the Typst deck template, and the MkDocs brand layer. Cream surface,
    terracotta accents, warm neutrals. Never pure white, never cold grey.
 
-   Pairs with `bierner.markdown-mermaid`: mermaid diagrams render as inline
-   SVG and are re-skinned below. For full fidelity also set
+   Pairs with VS Code's built-in mermaid preview (`mermaid-markdown-features`,
+   VS Code >= 1.123; formerly `bierner.markdown-mermaid`, now deprecated):
+   mermaid diagrams render as inline SVG and are re-skinned below.
+   For full fidelity also set
    `markdown-mermaid.lightModeTheme`: "base" in settings.json.
    ============================================================================= */
 
@@ -512,7 +514,7 @@ figcaption {
 .markdown-alert.markdown-alert-caution .markdown-alert-title   { color: var(--tg-danger); }
 
 /* =============================================================================
-   MERMAID — re-skin the `bierner.markdown-mermaid` output
+   MERMAID — re-skin the built-in `mermaid-markdown-features` output
    Requires `markdown-mermaid.lightModeTheme`: "base" for cleanest results.
    ============================================================================= */
 

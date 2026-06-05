@@ -44,7 +44,10 @@ re-running the symlink/package step.
 
 `styles/teragone-markdown-preview.css` is contributed via
 `contributes.markdown.previewStyles` and re-skins the built-in markdown
-preview plus mermaid diagrams rendered by `bierner.markdown-mermaid`. It
+preview plus mermaid diagrams rendered by VS Code's built-in
+`mermaid-markdown-features` (VS Code ≥ 1.123; previously the
+`bierner.markdown-mermaid` extension, now deprecated — having both
+installed breaks rendering, see README). It
 redeclares `--vscode-*` variables so the preview stays on-brand even when
 the editor is set to a dark theme. For cleanest mermaid output users
 should set `"markdown-mermaid.lightModeTheme": "base"`. Keep its palette
