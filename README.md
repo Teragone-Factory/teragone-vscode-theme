@@ -63,6 +63,16 @@ For cleanest mermaid output in the markdown preview, also set:
 }
 ```
 
+> [!NOTE]
+> **Mermaid diagrams blank in the preview?** Since VS Code 1.123 mermaid
+> preview support is built in (`mermaid-markdown-features`), and the old
+> `bierner.markdown-mermaid` marketplace extension is deprecated (its final
+> 1.32.1 release, May 2026, only marks the merge). If both are installed,
+> the two renderers race over the same ` ```mermaid ` fences and diagrams
+> render as empty containers. **Fix:** uninstall `bierner.markdown-mermaid`
+> and reload the window — the built-in uses the same `markdown-mermaid.*`
+> settings, so no other migration is needed.
+
 ### VS Marketplace / Open VSX
 
 Publishing to the public registries is tracked separately (see `BACKLOG.md`).
